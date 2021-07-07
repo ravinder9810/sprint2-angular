@@ -1,0 +1,111 @@
+
+<form #RegistrationForm="ngForm" (ngSubmit)="registerUser()">
+
+  <!-- FirstName-->
+  <div class="form-group">
+    <h3>Create Account </h3>
+    <h4><i>Signup to create, discover and connect with the global community</i></h4>
+    <label for="firstName"><b>FirstName: <sup style="color: red;">*</sup></b></label>
+    <input type="text" class="form-control" id="firstName" placeholder="Enter firstName" name="firstName"
+      [(ngModel)]="registerUserData.firstName" required #firstName="ngModel"
+      [class.is-invalid]="firstName.invalid && firstName.touched">
+    <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched"> FirstName is required</small>
+  </div>
+  <div class="col-10" *ngIf="errorMessage?.firstName">
+    <span class="text text-danger">{{errorMessage.firstName}}</span>
+  </div>
+
+  <!-- LastName -->
+  <div class="form-group">
+    <label for="LastName"><b>LastName: <sup style="color: red;">*</sup></b></label>
+    
+    <input type="text" class="form-control" id="lastName" placeholder="Enter lastName" name="lastName"
+      [(ngModel)]="registerUserData.lastName" required #lastName="ngModel"
+      [class.is-invalid]="lastName.invalid && lastName.touched">
+    <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched"> LastName is required</small>
+  </div>
+  <div class="col-10" *ngIf="errorMessage?.lastName">
+    <span class="text text-danger">{{errorMessage.lastName}}</span>
+  </div>
+
+  <!-- Gender-->
+  <div class="form-group">
+    <label for="gender"><b>Gender:</b></label>
+    <div>
+      <input id="male" type="radio" value="male" name="gender">
+      <label for="male">Male</label>&nbsp;&nbsp;
+   
+      <input id="female" type="radio" value="female" name="gender">
+      <label for="female">Female</label>
+    </div>
+  </div>
+
+  <!-- Address-->
+  <div class="form-group">
+    <label for="address"><b>Address:</b></label>
+    <input type="text" class="form-control" id="address" placeholder="Enter address" name="address" required>
+  </div>
+
+
+  <!-- EmailId -->
+  <div class="form-group">
+    <label for="emailId"><b>Email: <sup style="color: red;">*</sup></b></label>
+    <input type="email" class="form-control" id="email" placeholder="Enter email" name="emailId"
+      [(ngModel)]="registerUserData.emailId" required #emailId="ngModel"
+      [class.is-invalid]="emailId.invalid && emailId.touched">
+    <!-- <small class="text-danger" [class.d-none]="emailId.valid || emailId.untouched"> emailId is required</small>   pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$" -->
+    <div *ngIf="emailId.errors &&(emailId.invalid && emailId.touched)">
+      <small class="text-danger" *ngIf="emailId.errors.required"> EmailId is required</small>
+      <small class="text-danger" *ngIf="emailId.errors.pattern"> Invalid MAilId </small>
+    </div>
+  </div>
+  <div class="col-10" *ngIf="errorMessage?.emailId">
+    <span class="text text-danger">{{errorMessage.emailId}}</span>
+  </div>
+  <!-- UserName -->
+  <div class="form-group">
+    <label for="userName"><b>UserName: <sup style="color: red;">*</sup></b></label>
+    <input type="text" class="form-control" id="userName" placeholder="Enter userName" name="userName"
+      [(ngModel)]="registerUserData.userName" required>
+  </div>
+  <div class="col-10" *ngIf="errorMessage?.userName">
+    <span class="text text-danger">{{errorMessage.userName}}</span>
+  </div>
+
+  <!--PassWord-->
+  <div class="form-group">
+    <label for="pwd"><b>Password: <sup style="color: red;">*</sup></b></label> <i class="material-icons" matsuffix (click) ="hide =!hide" > {{hide ? 'visibility' : 'visibility_off'}}</i>
+    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+    <input type="password" [type]="hide ? 'password' : 'text'"  class="form-control"  id="password" placeholder="Enter password" name="password" 
+      [(ngModel)]="registerUserData.password" required #password="ngModel"
+      [class.is-invalid]="password.invalid && password.touched">
+      <i class="material-icons" matsuffix (click) ="hide =!hide" > {{hide ? 'visibility' : 'visibility_off'}}</i>
+         
+    <small class="text-danger" [class.d-none]="password.valid || password.untouched"> Password is required</small>
+
+
+  </div>
+
+  <div class="col-10" *ngIf="errorMessage?.password">
+    <span class="text text-danger">{{errorMessage.password}}</span>
+  </div>
+
+  <!-- Register Button -->
+  <button [disabled]="RegistrationForm.form.invalid" type="submit"
+  class="btn btn-primary btn-lg btn-block">Register</button><br><br>
+
+
+  <div class="alert alert-warning" *ngIf="RegistrationForm.submitted && isSignUpFailed">
+    Signup failed!<br />{{errorMessage}}
+  </div>
+
+
+  <div class="alert alert-success" *ngIf="isSuccessful">
+    Your registration is successful!
+  </div>
+
+
+  Existing User ? <button class="btn btn-info" [routerLink]="['']">Login here</button>
+
+</form>
+<p style="color: red;"><i> All the fields with (*) are MANDATORY </i></p>

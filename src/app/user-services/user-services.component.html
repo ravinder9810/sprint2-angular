@@ -1,0 +1,37 @@
+<h2> Welcome to User Friendly App</h2><br>
+<h2 style="text-align: center;">User Details</h2>
+<div class="card">
+
+
+  <table>
+    <tr>
+      <th>firstName:</th>
+      <td>{{user.firstName}}</td>
+    </tr>
+    <tr>
+      <th>lastName:</th>
+      <td>{{user.lastName}}</td>
+    </tr>
+    <tr>
+      <th>email-Id:</th>
+      <td>{{user.emailId}}</td>
+    </tr>
+    <!-- <tr>
+      <th>mobile No :</th>
+      <td>{{user.mobile}}</td>
+    </tr> -->
+    <tr>
+      <th>Address:</th>
+      <td>{{user.address}}</td>
+    </tr>
+
+
+
+
+  </table>
+
+</div>
+<button class="btn btn-outline-success" (click)="logout()"> Logout</button>
+<!--using routerLink-->
+<button class="btn btn-outline-success" (click)="deleteMyAccount(user.id)">Delete</button>
+<!--[routerLink]="['']"-->

@@ -1,0 +1,56 @@
+
+
+
+<div class="row">
+  <div class="col-sm-4 text-center abc">
+
+    <p class="h4 mb-4 text-left">Login to continue</p>
+    <p class="text-left">Signin to create, discover and connect with the global community</p>
+
+    <form #loginForm="ngForm" (ngSubmit)="loginUser()">
+      <!--    {{loginForm.form.valid}}-->
+      <small style="font-size: large;" class="text-danger">{{message}}</small>
+
+      <!-- for EmailId-->
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="emailId"
+          [(ngModel)]="loginData.emailId" required #emailId="ngModel"
+          [class.is-invalid]="emailId.invalid && emailId.touched">
+        <!-- pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$" <small class="text-danger" [class.d-none]="emailId.valid || emailId.untouched"> emailId is required</small> -->
+        <div *ngIf="emailId.errors &&(emailId.invalid && emailId.touched)">
+          <small class="text-danger" *ngIf="emailId.errors.required"> emailId is required</small>
+          <small class="text-danger" *ngIf="emailId.errors.pattern"> Invalid MAilId </small>
+
+        </div>
+      </div>
+      <!-- for password -->
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <!--// id is not mandatory // name is mandatory-->
+        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password"
+          [(ngModel)]="loginData.password" required #password="ngModel"
+          [class.is-invalid]="password.invalid && password.touched">
+        <small class="text-danger" [class.d-none]="password.valid || password.untouched"> password is required</small>
+      </div>
+      <!-- <div class="checkbox">
+        <label><input type="checkbox" name="remember"> Remember me</label>
+      </div> -->
+      <button [disabled]="loginForm.form.invalid" type="submit" class="btn btn-info">Login</button> &nbsp;
+
+      <!-- <button class="btn btn-outline-success" (click)="gotoRegitration()"> New User ? Register here</button> -->
+
+    </form>
+
+  </div>
+
+  <div class="col-sm-8 xyz text-center" style="background-image: url(https://i.imgur.com/6YuRxJA.png)">
+
+    <i class="fa fa-user-circle fa-5x" aria-hidden="true"></i>
+    <h2 class="account-text">Create Your Account</h2>
+    <h4 class="account-description">Signup to create, discover and connect with the global community</h4>
+
+    <button class="btn btn-info btn-block sign" [routerLink]="['/registration']"> SIGN UP</button>
+    <!--using routerLink-->
+  </div>
+</div>
