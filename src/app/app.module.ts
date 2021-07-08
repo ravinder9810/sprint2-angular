@@ -11,6 +11,7 @@ import { UserServicesComponent } from './user-services/user-services.component';
 import { LogoutComponent } from './logout/logout.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ViewDetailsComponent } from './view-details/view-details.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserServicesComponent,
     LogoutComponent,
     FooterComponent,
+    ViewDetailsComponent,
 
   ],
   imports: [

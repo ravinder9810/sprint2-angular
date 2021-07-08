@@ -8,8 +8,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { UserServicesComponent } from './user-services/user-services.component';
 
 const routes: Routes = [
- // {path:'',component:HomeComponent},
- // {path:'',component:RegistrationComponent},
+
   {path:'',component:LoginComponent},
   {path:'user-services/:emailId',component:UserServicesComponent},
   {path:'registration',component:RegistrationComponent},

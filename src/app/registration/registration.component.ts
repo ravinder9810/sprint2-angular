@@ -11,14 +11,15 @@ import { User } from '../user';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  registerUserData = new User();
-  message = '';
-  errorMessage: User;
 
+  registerUserData = new User();
+  errorMessage: User;
   isSuccessful = false;
   isSignUpFailed = false;
 
 hide=true;
+hide1=true;
+
   constructor(
     private registerService: RegistrationServiceService,
     private router: Router
@@ -31,7 +32,6 @@ hide=true;
     this.registerService.registerUser(this.registerUserData).subscribe(
       data => {
         console.log(this.registerUserData);
-        //  this.message="Registration successfull";
         this.isSuccessful = true;
         this.isSignUpFailed = false;
         alert("successfully registered::");
@@ -41,7 +41,6 @@ hide=true;
       },
       error => {
         console.log("error exist");
-        console.log(this.registerUserData)
         this.errorMessage = error.error;
         this.isSignUpFailed = true;
       }

@@ -61,10 +61,7 @@ form {
     background-color: #bcc2be;
     border: none
 }
-/* 
-.custom-control {
-    margin-bottom: 2%
-} */
+
 
 h2.account-text {
     color: #fff !important;
@@ -76,11 +73,3 @@ h2.account-text {
     margin-bottom: 4%;
     font-weight: 200
 }
-/* 
-@media only screen and (max-width: 600px) {
-    row {
-        margin-top: 5%;
-        margin-left: 1%;
-        margin-right: 1%
-    }
-} */
