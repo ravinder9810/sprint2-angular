@@ -8,7 +8,7 @@ import { User } from './user';
 @Injectable({
   providedIn: 'root'
 })
-export class RegistrationServiceService {
+export class RegistrationLoginLogoutService {
 
   constructor(
     private httpClient:HttpClient

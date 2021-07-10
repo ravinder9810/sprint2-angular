@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Login } from '../login';
-import { RegistrationServiceService } from '../registration-service.service';
+import { RegistrationLoginLogoutService } from '../registration-Login-Logoutservice.service';
 import { User } from '../user';
 
 
@@ -11,17 +11,16 @@ import { User } from '../user';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-
   registerUserData = new User();
   errorMessage: User;
-  isSuccessful = false;
+  isSuccessfull = false;
   isSignUpFailed = false;
 
 hide=true;
 hide1=true;
 
   constructor(
-    private registerService: RegistrationServiceService,
+    private registerService: RegistrationLoginLogoutService,
     private router: Router
   ) { }
 
@@ -32,10 +31,10 @@ hide1=true;
     this.registerService.registerUser(this.registerUserData).subscribe(
       data => {
         console.log(this.registerUserData);
-        this.isSuccessful = true;
+        this.isSuccessfull = true;
         this.isSignUpFailed = false;
-        alert("successfully registered::");
-        if (this.isSuccessful) {
+        alert("successfully registered , Kindly login for further services ");
+        if (this.isSuccessfull) {
           this.router.navigate([''])
         }
       },
