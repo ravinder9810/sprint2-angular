@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Login } from '../login';
+
 import { RegistrationLoginLogoutService } from '../registration-Login-Logoutservice.service';
 import { User } from '../user';
 
@@ -37,20 +37,20 @@ export class UserServicesComponent implements OnInit {
 
 
   logout() {
-        this.router.navigate(['/logoutconponent'])
+        this.router.navigate(['/logoutComponent'])
   }
 
-  deleteMyAccount(id: number) {
-    this.service.deleteAccount(id).subscribe(
-      data => {
-        console.log(data),
-          alert("user Account Successfullt Deleted Kindly Re-Register to Continue the Services :"),
-          this.router.navigate([''])
+  // deleteMyAccount(id: number) {
+  //   this.service.deleteAccount(id).subscribe(
+  //     data => {
+  //       console.log(data),
+  //         alert("user Account Successfullt Deleted Kindly Re-Register to Continue the Services :"),
+  //         this.router.navigate([''])
 
-      },
-      error => console.log(error)
+  //     },
+  //     error => console.log(error)
 
-    )
+  //   )  
+  // }
 
-  }
 }

@@ -9,21 +9,23 @@
 
     <form #loginForm="ngForm" (ngSubmit)="loginUser()">
       <!--    {{loginForm.form.valid}}-->
-      <small style="font-size: large;" class="text-danger">{{message}}</small>
-
+      <div>
+      <span style="font-size: large;" class="text text-danger">{{message}}</span>
+        </div>
       <!-- for EmailId-->
       <div class="form-group">
         <label for="email">Email:</label>
         <input type="email" class="form-control" id="email" placeholder="Enter email" name="emailId"
           [(ngModel)]="loginData.emailId" required #emailId="ngModel"
           [class.is-invalid]="emailId.invalid && emailId.touched">
-        <!-- pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$" <small class="text-danger" [class.d-none]="emailId.valid || emailId.untouched"> emailId is required</small> -->
+       
         <div *ngIf="emailId.errors &&(emailId.invalid && emailId.touched)">
           <small class="text-danger" *ngIf="emailId.errors.required"> emailId is required</small>
           <small class="text-danger" *ngIf="emailId.errors.pattern"> Invalid MAilId </small>
 
         </div>
       </div>
+
       <!-- for password -->
       <div class="form-group">
         <label for="pwd">Password:</label>

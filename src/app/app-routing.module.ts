@@ -10,10 +10,11 @@ import { UserServicesComponent } from './user-services/user-services.component';
 
 const routes: Routes = [
 
-  {path:'',component:LoginComponent},
-  {path:'user-services/:emailId',component:UserServicesComponent },
-  {path:'registration',component:RegistrationComponent},
-  {path:'logoutconponent',component:LogoutComponent}
+  { path: 'registration', component: RegistrationComponent },
+  { path: '', component: LoginComponent },
+  { path: 'user-services/:emailId', component: UserServicesComponent },
+  { path: 'logoutComponent', component: LogoutComponent }
+  
 ];
 
 @NgModule({

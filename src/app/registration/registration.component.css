@@ -78,6 +78,13 @@ h2 {
   
   border: 1px solid #aaa;
   
+  
+}
+
+input[type="radio"] {
+  -ms-transform: scale(1.5); 
+  -webkit-transform: scale(1.5); 
+  transform: scale(1.5);
 }
 
 /* this is for placeHolder(Input) inside the boxes*/
@@ -90,7 +97,6 @@ h2 {
 i{
   margin: 0 10px;
 }
-
 
 
 

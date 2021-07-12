@@ -1,3 +1,6 @@
+
+  
+
 <div class="d-lg-flex half">
   <div class="contents  ">
     <div class="container">
@@ -7,31 +10,34 @@
           <p class="mb-4">Signup to create, discover and connect with the global community</p>
 
           <form #RegistrationForm="ngForm" (ngSubmit)="registerUser()">
+
+            <!-- For First Name-->
             <div class="row">
               <div class="col-md-6">
-                <div class="form-group first">
-                  <label for="firstName" class="heading">FirstName:  <sup style="color: red;">*</sup></label>
+                <div class="form-group " >
+                  <label for="firstName" class="heading">FirstName: <sup style="color: red;">*</sup></label>
                   <div class="input-container">
-                    <input type="text" class="form-control" id="firstName" placeholder="Ex: ravinder"
-                      name="firstName" [(ngModel)]="registerUserData.firstName" required #firstName="ngModel"
+                    <input type="text" class="form-control" id="firstName" placeholder="Ex: ravinder" name="firstName"
+                      [(ngModel)]="registerUserData.firstName" required #firstName="ngModel"
                       [class.is-invalid]="firstName.invalid && firstName.touched">
 
                   </div>
-                  <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched"> FirstName is
-                    required</small>
-                  <!-- <div *ngIf="firstName.errors &&(firstName.invalid && firstName.touched)">
+
+                  <div *ngIf="firstName.errors &&(firstName.invalid && firstName.touched)">
                     <small class="text-danger" *ngIf="firstName.errors.required"> First name is required</small>
-                   
-                    <small class="text-danger" *ngIf="firstName.errors.minlength"> First Name should have minimum 4 characters </small>
-                  </div> -->
+
+                    <!-- <small class="text-danger" *ngIf="firstName.errors.minlength"> First Name should have minimum 4 characters </small> -->
+                  </div>
 
                   <div class="col-10" *ngIf="errorMessage?.firstName">
                     <span class="text text-danger">{{errorMessage.firstName}}</span>
                   </div>
                 </div>
               </div>
+
+              <!--For Last Name-->
               <div class="col-md-6">
-                <div class="form-group first">
+                <div class="form-group ">
                   <label for="lastName" class="heading">LastName: <sup style="color: red;">*</sup></label>
                   <div class="input-container">
                     <input type="text" class="form-control" id="lastName" placeholder="Ex: Aleti" name="lastName"
@@ -39,13 +45,12 @@
                       [class.is-invalid]="lastName.invalid && lastName.touched">
                   </div>
 
-                  <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched"> LastName is
-                    required</small>
-                  <!-- <div *ngIf="lastName.errors &&(lastName.invalid && lastName.touched)">
+
+                  <div *ngIf="lastName.errors &&(lastName.invalid && lastName.touched)">
                     <small class="text-danger" *ngIf="lastName.errors.required"> Last Name is required</small>
-                   
-                    <small class="text-danger" *ngIf="lastName.errors.minlength"> Last Name should have minimum 4 characters </small>
-                  </div> -->
+
+                    <!-- <small class="text-danger" *ngIf="lastName.errors.minlength"> Last Name should have minimum 4 characters </small> -->
+                  </div>
 
                   <div class="col-10" *ngIf="errorMessage?.lastName">
                     <span class="text text-danger">{{errorMessage.lastName}}</span>
@@ -60,14 +65,14 @@
                 <div class="form-group first">
                   <label for="emailId" class="heading">Email: <sup style="color: red;">*</sup></label>
                   <div class="input-container">
-                    <input type="email" class="form-control" id="email" placeholder="Ex: ravinder123@gmail.com" name="emailId"
-                      [(ngModel)]="registerUserData.emailId" required #emailId="ngModel"
+                    <input type="email" class="form-control" id="email" placeholder="Ex: ravinder123@gmail.com"
+                      name="emailId" [(ngModel)]="registerUserData.emailId" required #emailId="ngModel"
                       [class.is-invalid]="emailId.invalid && emailId.touched">
 
                   </div>
                   <!-- <small class="text-danger" [class.d-none]="emailId.valid || emailId.untouched"> emailId is required</small>   pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+[.com]$" -->
                   <div *ngIf="emailId.errors &&(emailId.invalid && emailId.touched)">
-                    <small class="text-danger" *ngIf="emailId.errors.required"> EmailId is required</small>
+                    <small class="text-danger" *ngIf="emailId.errors.required"> Email-Id is required</small>
                     <!-- <small class="text-danger" *ngIf="emailId.errors.pattern"> Invalid Mail-Id </small> -->
                   </div>
                   <div class="col-10" *ngIf="errorMessage?.emailId">
@@ -89,8 +94,8 @@
 
                   </div>
                   <div *ngIf="userName.errors &&(userName.invalid && userName.touched)">
-                    <small class="text-danger" *ngIf="userName.errors.required"> userName is required</small>
-                    <small class="text-danger" *ngIf="userName.errors.minlength"> userName should have minimum 5
+                    <small class="text-danger" *ngIf="userName.errors.required"> UserName is required</small>
+                    <small class="text-danger" *ngIf="userName.errors.minlength"> UserName should have minimum 4
                       characters</small>
                   </div>
 
@@ -108,9 +113,11 @@
                   <label for="gender" class="heading">Gender:</label><br><br>
                   <div>
                     <input id="male" type="radio" value="male" name="gender" [(ngModel)]="registerUserData.gender">
-                    <label for="male">Male</label>&nbsp;&nbsp;
+                    <label for="male"> &nbsp;Male</label>&nbsp;&nbsp;
                     <input id="female" type="radio" value="female" name="gender" [(ngModel)]="registerUserData.gender">
-                    <label for="female">Female</label>
+                    <label for="female"> &nbsp;Female</label>&nbsp;&nbsp;
+                    <input id="other" type="radio" value="other" name="gender" [(ngModel)]="registerUserData.gender">
+                    <label for="other"> &nbsp;Other</label>
                   </div>
                 </div>
               </div>
@@ -121,11 +128,12 @@
                   <label for="address" class="heading">Address:</label>
                   <div class="input-container">
                     <input type="text" class="form-control" id="address" [(ngModel)]="registerUserData.address"
-                      placeholder="Enter address" name="address">
+                      placeholder="Ex: Delhi , Hyderabad .." name="address">
                   </div>
                 </div>
               </div>
             </div><br>
+
             <!--For Password -->
             <div class="row">
               <div class="col-md-6">
@@ -135,31 +143,35 @@
                   <div class="input-container">
 
                     <input type="password" [type]="hide ? 'password' : 'text'" class="form-control" id="password"
-                      maxlength="20" placeholder="Ex:Aa12!@Aa" name="password"
+                      minlength="8" maxlength="20" placeholder="Ex:Aa12!@Aa" name="password"
                       [(ngModel)]="registerUserData.password" required #password="ngModel"
                       [class.is-invalid]="password.invalid && password.touched" />
-
-
                     <i class="material-icons" matsuffix (click)="hide =!hide"> {{hide ? 'visibility'
                       :'visibility_off'}}</i>
 
+                  </div>
+
+                  <div *ngIf="password.errors &&(password.invalid && password.touched)">
+                    <small class="text-danger" *ngIf="password.errors.required">Password is required</small>
+                    <small class="text-danger" *ngIf="password.errors.minlength"> Password should have minimum 8
+                      characters </small>
 
                   </div>
-                  <small class="text-danger" [class.d-none]="password.valid || password.untouched"> Password is
-                    required</small>
+
                   <div class="col-10" *ngIf="errorMessage?.password">
                     <span class="text text-danger">{{errorMessage.password}}</span>
                   </div>
 
                 </div>
               </div>
+
               <!--confirm password-->
               <div class="col-md-6">
                 <div class="form-group last mb-3">
                   <label for="confirmPassword" class="heading">ConfirmPassword: <sup style="color: red;">*</sup></label>
                   <div class="input-container">
 
-                    <input type="password" [type]="hide1 ? 'password' : 'text'" class="form-control"
+                    <input type="password" [type]="hide1 ? 'password' : 'text'" class="form-control" minlength="8"
                       id="confirmPassword" placeholder="Ex:Aa12!@Aa " name="confirmPassword"
                       [(ngModel)]="registerUserData.confirmPassword" required #confirmPassword="ngModel"
                       [class.is-invalid]="confirmPassword.invalid && confirmPassword.touched" />
@@ -167,9 +179,14 @@
                       :'visibility_off'}}</i>
 
                   </div>
-                  <small class="text-danger" [class.d-none]="confirmPassword.valid || confirmPassword.untouched">
-                    confirmPassword is
-                    required</small>
+
+                  <div *ngIf="confirmPassword.errors &&(confirmPassword.invalid && confirmPassword.touched)">
+                    <small class="text-danger" *ngIf="confirmPassword.errors.required">confirm Password is
+                      required</small>
+                    <small class="text-danger" *ngIf="confirmPassword.errors.minlength"> confirm Password should have
+                      minimum 8
+                      characters </small>
+                  </div>
                   <div class="col-10" *ngIf="errorMessage?.confirmPassword">
                     <span class="text text-danger">{{errorMessage.confirmPassword}}</span>
                   </div>
@@ -206,3 +223,4 @@
     </div>
   </div>
 </div>
+
